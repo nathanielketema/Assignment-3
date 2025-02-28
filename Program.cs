@@ -33,8 +33,7 @@ class Program
         }
 
         Console.WriteLine("\nActivity Log:");
-        foreach (var log in Student.Log)
-        {
+        foreach (var log in Student.Log) {
             Console.WriteLine(log);
         }
     }
