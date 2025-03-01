@@ -22,6 +22,8 @@ class Program
             new Student(10, "Anna Violet", "annaviolet@dsu.edu")
         };
 
+        students[4].Country = "England";
+
         foreach (var student in students)
         {
             Console.WriteLine("\nStudent Info:");
