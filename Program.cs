@@ -27,7 +27,12 @@ class Program
             Console.WriteLine("\nStudent Info:");
             Console.WriteLine($"ID: {student.ID}");
             Console.WriteLine($"Name: {student.Name}");
+            Console.WriteLine($"Major: {student.Major}");
             Console.WriteLine($"Email: {student.Email}");
+            Console.WriteLine($"Start Date: {student.StartDate}");
+            Console.WriteLine($"Anticipated Graduation Date: {student.AnticipatedGraduationDate}");
+            Console.WriteLine($"State: {student.State}");
+            Console.WriteLine($"Country: {student.Country}");
             Console.WriteLine($"Phone: {student.Phone}");
             Console.WriteLine($"Mailing Address: {student.MailingAddress}");
         }

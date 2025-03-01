@@ -48,13 +48,7 @@ class Student
 
     public DateTime StartDate
     {
-        get
-        {
-            if (restrictPersonalInfo)
-                throw new UnauthorizedAccessException("Access not granted!");
-            else
-                return startDate;
-        }
+        get => startDate;
         set
         {
             startDate = value;
@@ -64,13 +58,7 @@ class Student
 
     public DateTime AnticipatedGraduationDate
     {
-        get
-        {
-            if (restrictPersonalInfo)
-                throw new UnauthorizedAccessException("Access not granted!");
-            else
-                return anticipatedGraduationDate;
-        }
+        get => anticipatedGraduationDate;
         set
         {
             anticipatedGraduationDate = value;
