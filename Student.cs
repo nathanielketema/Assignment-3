@@ -12,9 +12,9 @@ class Student
     private string state;
     private string country;
     private string email;
+    private bool restrictPersonalInfo;
     private string phone;
     private string mailingAddress;
-    private bool restrictPersonalInfo;
 
     public static List<string> Log = new List<string>();
 
@@ -26,7 +26,7 @@ class Student
         set
         {
             name = value;
-            Log.Add($"{DateTime.Now} - Name updated!");
+            Log.Add($"Name updated");
         }
     }
 
@@ -35,14 +35,14 @@ class Student
         get
         {
             if (restrictPersonalInfo)
-                return "Access not granted!";
+                return "Restriced Personal Information";
             else
                 return major;
         }
         set
         {
             major = value;
-            Log.Add($"{DateTime.Now} - Major updated!");
+            Log.Add($"Major updated");
         }
     }
 
@@ -52,7 +52,7 @@ class Student
         set
         {
             startDate = value;
-            Log.Add($"{DateTime.Now} - Start Date updated!");
+            Log.Add($"Start Date updated");
         }
     }
 
@@ -62,7 +62,7 @@ class Student
         set
         {
             anticipatedGraduationDate = value;
-            Log.Add($"{DateTime.Now} - Anticipated Graduation Date updated!");
+            Log.Add($"Anticipated Graduation Date updated");
         }
     }
 
@@ -71,14 +71,14 @@ class Student
         get
         {
             if (restrictPersonalInfo)
-                return "Access not granted!";
+                return "Restriced Personal Information";
             else
                 return state;
         }
         set
         {
             state = value;
-            Log.Add($"{DateTime.Now} - State updated!");
+            Log.Add($"State updated");
         }
     }
 
@@ -87,14 +87,14 @@ class Student
         get
         {
             if (restrictPersonalInfo)
-                return "Access not granted!";
+                return "Restriced Personal Information";
             else
                 return country;
         }
         set
         {
             country = value;
-            Log.Add($"{DateTime.Now} - Country updated!");
+            Log.Add($"Country updated");
         }
     }
 
@@ -103,7 +103,7 @@ class Student
         get => email;
         set
         {
-            if (!Regex.IsMatch(value, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
+            if (!Regex.IsMatch(value, @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"))
                 throw new ArgumentException("Invalid email format!");
             email = value;
             Log.Add($"{DateTime.Now} - Email updated!");
@@ -115,16 +115,14 @@ class Student
         get
         {
             if (restrictPersonalInfo)
-                return "Access not granted!";
+                return "Restriced Personal Information";
             else
                 return phone;
         }
         set
         {
-            if (!Regex.IsMatch(value, @"^\d{10}$"))
-                throw new ArgumentException("Invalid phone format!");
             phone = value;
-            Log.Add($"{DateTime.Now} - Phone updated!");
+            Log.Add($"{DateTime.Now} - Phone updated");
         }
     }
 
@@ -133,14 +131,14 @@ class Student
         get
         {
             if (restrictPersonalInfo)
-                return "Access not granted!";
+                return "Restriced Personal Information";
             else
                 return mailingAddress;
         }
         set
         {
             mailingAddress = value;
-            Log.Add($"{DateTime.Now} - Mailing Address updated!");
+            Log.Add($"Mailing Address updated");
         }
     }
 
@@ -150,7 +148,7 @@ class Student
         set
         {
             restrictPersonalInfo = value;
-            Log.Add($"{DateTime.Now} - Privacy restriction updated!");
+            Log.Add($"Privacy restriction updated");
         }
     }
 
@@ -161,9 +159,19 @@ class Student
         Email = email;
     }
 
-    public Student(int id, string name, string email, string major, DateTime startDate,
-            DateTime graduationDate, string state, string country, string phone,
-            string address, bool restrictInfo)
+    public Student(
+        int id,
+        string name,
+        string email,
+        string major,
+        DateTime startDate,
+        DateTime graduationDate,
+        string state,
+        string country,
+        string phone,
+        string address,
+        bool restrictInfo
+    )
     {
         ID = id;
         Name = name;
